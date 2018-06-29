@@ -1,0 +1,20 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("images/nit_delhi_camp.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{float: right;}
+.row{background-color:rgba(255,255,255,0.5); width:230px; height:230px;}
+.bt{margin-left: 38px;}
