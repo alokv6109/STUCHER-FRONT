@@ -25,10 +25,10 @@
             Please fill out the form below to login to your account.
           </p>
           <div class="form-white">
-            <form action="student_details.html" onsubmit="return validate()" method="Post" name="form">
+            <form action="/process" onsubmit="return validate()" method="Post" name="form">
               <div class="form-group">
                 <label>Username</label>
-                <input type="text" class="form-control" id="roll_no" placeholder="Roll no. or Email" name="roll_no">
+                <input type="text" class="form-control" id="roll_no" placeholder="Roll no. or Email" name="username">
               </div>
               <div class="form-group">
                 <label for="password">Password</label><a href="reset_password.html" id="lost-btn" style="float:right;">Forgot password?</a>
@@ -42,7 +42,7 @@
               <button type="submit" class="btn btn-block btn-color btn-xxl">Submit</button>
             </form>
             <hr>
-            <center>New user? <a href="signup.html" id="signup">Create new account</a></center>
+            <center>New user? <a href="127.0.0.1:8081/newUser" id="signup">Create new account</a></center>
 
           </div>
         </div>
