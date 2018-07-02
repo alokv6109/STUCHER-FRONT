@@ -27,18 +27,18 @@
             Please fill out the form below to create a new account.
           </p>
           <div class="form-white">
-            <form action="/register_teach" onsubmit="return(valid()&&validateemail())" method="Post" name="form1">
+            <form action="/register_teach" onsubmit="return vald();" method="Post" name="form">
               <div class="form-group">
                 <label for="name">First Name:</label>
-                <input type="text" class="form-control" id="first_name" placeholder="Your first name" name="first_name">
+                <input type="text" class="form-control" id="first" placeholder="Your first name" name="first_name">
               </div>
               <div class="form-group">
                 <label for="name">Last Name:</label>
-                <input type="text" class="form-control" id="last_name" placeholder="Your first name" name="last_name">
+                <input type="text" class="form-control" id="last" placeholder="Your first name" name="last_name">
               </div>
               <div class="form-group">
                 <label for="name">Date Of Birth:</label>
-                <input type="text" class="form-control" id="dob" placeholder="Your DOB" name="dob">
+                <input type="text" class="form-control" id="db" placeholder="Your DOB" name="dob">
               </div>
               <div class="form-group">
                 <label >Id:</label>
@@ -46,24 +46,22 @@
               </div>
               <div class="form-group">
                 <label for="branch">Deparment:</label>
-                <input type="text" class="form-control" id="department" placeholder="Enter your department" name="branch">
+                <input type="text" class="form-control" id="department" placeholder="Enter your department" name="department">
               </div>
               <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="em" placeholder="Enter email" name="email">
               </div>
               <div class="form-group">
                 <label for="mobile">Mobile:</label>
-                <input type="mobile" class="form-control" id="mobile" placeholder="Enter mobile" name="mobile">
+                <input type="mobile" class="form-control" id="mob" placeholder="Enter mobile" name="mobile">
               </div>
               <div class="form-group">
                 <label>Password:</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="pas" placeholder="Password" name="password">
               </div>
               <label>Profile Photo</label>
-              <form action="#">
                 <input type="file" name="pic" accept="image/*">
-              </form>
             <div class="checkbox">
               <label>
                 <input type="checkbox" /> I agree to the <a href=".html#">Terms of Service</a> and <a href=".html#">Privacy Policy</a>

@@ -24,7 +24,7 @@ function valid(){
   if(fname=="")
   {alert("Please enter your first name"); return false;}
   else if(lname=="")
-  {alert("Please enter your roll no."); return false;}
+  {alert("Please enter your last name"); return false;}
   else if(dob=="")
   {alert("Please enter your DOB"); return false;}
   else if(roll=="")
@@ -39,27 +39,56 @@ function valid(){
   {alert("Please enter password"); return false;}
   else {return true;}
 }
-//*********************Email Id Validation************************
-function validateemail(inputText)
-{
-  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  if(inputText.value.match(mailformat))
-  {
-    document.form1.email.focus();
-    return true;
-  }
-  else
-  {
-    alert("You have entered an invalid email address!");
-    document.form1.email.focus();
-    return false;
-  }
+//*******Registration credential validation for teacher**************
+function vald(){
+  var fn=document.getElementById("first").value;
+  var ln=document.getElementById("last").value;
+  var db=document.getElementById("db").value;
+  var rol=document.getElementById("emp_id").value;
+  var bran=document.getElementById("department").value;
+  var em=document.getElementById("em").value;
+  var mob=document.getElementById("mob").value;
+  var pas=document.getElementById("pas").value;
+  if(fn=="")
+  {alert("Please enter your first name"); return false;}
+  else if(ln=="")
+  {alert("Please enter your last name"); return false;}
+  else if(db=="")
+  {alert("Please enter your DOB"); return false;}
+  else if(rol=="")
+  {alert("Please enter your Id"); return false;}
+  else if(bran=="")
+  {alert("Please enter your department"); return false;}
+  else if(em=="")
+  {alert("Please enter email id"); return false;}
+  else if(mob=="")
+  {alert("Please enter your mobile no."); return false;}
+  else if(pas=="")
+  {alert("Please enter password"); return false;}
+  else {return true;}
 }
 
+//*********************Email Id Validation************************
+// function validateemail(inputText)
+// {
+//   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//   if(inputText.value.match(mailformat))
+//   {
+//     document.form1.email.focus();
+//     return true;
+//   }
+//   else
+//   {
+//     alert("You have entered an invalid email address!");
+//     document.form1.email.focus();
+//     return false;
+//   }
+// }
+
 //*****************Angular Js***********************//
-var app=angular.module('myApp',[]);
-app.controller('myCtrl',function($scope,$http){
-  $http.get('').then(function(response){
-    $scope.user_name=response.data;
-  })
-})
+// var app=angular.module('myApp',[]);
+// app.controller('myCtrl',function($scope,$http){
+//   $http.get('').then(function(response){
+//     $scope=response.data;
+//   })
+// })
