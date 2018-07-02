@@ -208,10 +208,10 @@ i.style-toggle-btn {
 .body-amethyst .btn-color:active {
 	background-color: #8e44ad;
 	border-color: #6C3384;
-
+}
 
 	/* student details css */
-	.user-row {
+.user-row {
 		margin-bottom: 14px;
 	}
 
