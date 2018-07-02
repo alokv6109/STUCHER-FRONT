@@ -1,7 +1,7 @@
 
 //****************     Login credential validation   *******************
 function validate(){
-  var roll=document.getElementById("roll_no").value;
+  var roll_no=document.getElementById("login_id").value;
   var pass=document.getElementById("password").value;
   if(roll=="")
   {alert("Please enter username"); return false;}
@@ -56,10 +56,10 @@ function validateemail(inputText)
   }
 }
 
-//*****************Angular Js***********************//
-var app=angular.module('myApp',[]);
-app.controller('myCtrl',function($scope,$http){
-  $http.get('').then(function(response){
-    $scope.=response.data;
-  })
-})
+// //*****************Angular Js***********************//
+// var app=angular.module('myApp',[]);
+// app.controller('myCtrl',function($scope,$http){
+//   $http.get('').then(function(response){
+//     $scope.=response.data;
+//   })
+// })
