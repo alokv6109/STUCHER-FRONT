@@ -57,9 +57,9 @@ function validateemail(inputText)
 }
 
 //*****************Angular Js***********************//
-// var app=angular.module('myApp',[]);
-// app.controller('myCtrl',function($scope,$http){
-//   $http.get('').then(function(response){
-//     $scope=response.data;
-//   })
-// })
+var app=angular.module('myApp',[]);
+app.controller('myCtrl',function($scope,$http){
+  $http.get('').then(function(response){
+    $scope.user_name=response.data;
+  })
+})
