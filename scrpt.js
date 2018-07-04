@@ -13,6 +13,7 @@ function validate(){
 
 //*****************Registration credential validation*******************
 function valid(){
+
   var fname=document.getElementById("first_name").value;
   var lname=document.getElementById("last_name").value;
   var dob=document.getElementById("dob").value;
@@ -29,6 +30,8 @@ function valid(){
   {alert("Please enter your DOB"); return false;}
   else if(roll=="")
   {alert("Please enter your roll no."); return false;}
+  else if(isNaN(roll))
+  {alert("Please enter valid roll no."); return false;}
   else if(branch=="")
   {alert("Please enter your branch"); return false;}
   else if(email=="")
@@ -57,6 +60,8 @@ function vald(){
   {alert("Please enter your DOB"); return false;}
   else if(rol=="")
   {alert("Please enter your Id"); return false;}
+  else if(isNaN(rol))
+  {alert("Please enter valid Id"); return false;}
   else if(bran=="")
   {alert("Please enter your department"); return false;}
   else if(em=="")

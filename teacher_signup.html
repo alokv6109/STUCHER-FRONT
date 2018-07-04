@@ -30,31 +30,37 @@
             <form action="/register_teach" onsubmit="return vald();" method="Post" name="form">
               <div class="form-group">
                 <label for="name">First Name:</label>
-                <input type="text" class="form-control" id="first" placeholder="Your first name" name="first_name">
+                <input type="text" class="form-control" id="first" placeholder="only alphabets without space" name="first_name" pattern="[A-z]+">
               </div>
               <div class="form-group">
                 <label for="name">Last Name:</label>
-                <input type="text" class="form-control" id="last" placeholder="Your first name" name="last_name">
+                <input type="text" class="form-control" id="last" placeholder="only alphabets without space" name="last_name"  pattern="[A-z]+">
               </div>
               <div class="form-group">
                 <label for="name">Date Of Birth:</label>
-                <input type="text" class="form-control" id="db" placeholder="Your DOB" name="dob">
+                <input type="date" class="form-control" id="db" placeholder="DD/MM/YYYY" name="dob">
               </div>
               <div class="form-group">
                 <label >Id:</label>
-                <input type="text" class="form-control" id="emp_id" placeholder="Enter your Id" name="emp_id">
+                <input type="text" class="form-control" id="emp_id" placeholder="Only numeric values" name="emp_id">
               </div>
               <div class="form-group">
-                <label for="branch">Deparment:</label>
-                <input type="text" class="form-control" id="department" placeholder="Enter your department" name="department">
+                <label for="department">Department:</label>
+                <select class="form-control" id="department">
+                  <option value="CSE" name="CSE">CSE</option>
+                  <option value="ECE" name="ECE">ECE</option>
+                  <option value="EEE" name="EEE">EEE</option>
+                  <option value="Mechanical" name="Mechanical">Mechanical</option>
+                  <option value="Civil" name="Civil">Civil</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="em" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="em" placeholder="example@gmail.com" name="email">
               </div>
               <div class="form-group">
                 <label for="mobile">Mobile:</label>
-                <input type="mobile" class="form-control" id="mob" placeholder="Enter mobile" name="mobile">
+                <input type="mobile" class="form-control" id="mob" placeholder="9999999999" name="mobile" pattern="^\d{10}$">
               </div>
               <div class="form-group">
                 <label>Password:</label>
