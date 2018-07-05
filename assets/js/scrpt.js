@@ -73,6 +73,7 @@ function vald() {
 //*****************Angular Js***********************//
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http){
+  conlole
   $http.get('/process_stud').then(function(response){
     $scope.user_name=response.data.first_name;
     $scope.roll_no=response.data.roll_no;
