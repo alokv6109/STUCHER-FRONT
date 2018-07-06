@@ -19,6 +19,7 @@ function valid() {
   var email = document.getElementById("email").value;
   var mobile = document.getElementById("mobile").value;
   var pass = document.getElementById("password").value;
+  var pc = document.getElementById("pc").value;
   if (fname == "") { alert("Please enter your first name"); return false; }
   else if (lname == "") { alert("Please enter your last name"); return false; }
   else if (dob == "") { alert("Please enter your DOB"); return false; }
@@ -28,6 +29,7 @@ function valid() {
   else if (email == "") { alert("Please enter email id"); return false; }
   else if (mobile == "") { alert("Please enter your mobile no."); return false; }
   else if (pass == "") { alert("Please enter password"); return false; }
+  else if (pc == "") { alert("Please upload photo"); return false; }
   else { return true; }
 }
 
@@ -41,7 +43,7 @@ function vald() {
   var em = document.getElementById("em").value;
   var mob = document.getElementById("mob").value;
   var pas = document.getElementById("pas").value;
-  var pc=document.getElementById("pc").value;
+  var pic=document.getElementById("pc").value;
   if (fn == "") { alert("Please enter your first name"); return false; }
   else if (ln == "") { alert("Please enter your last name"); return false; }
   else if (db == "") { alert("Please enter your DOB"); return false; }
@@ -51,10 +53,10 @@ function vald() {
   else if (em == "") { alert("Please enter email id"); return false; }
   else if (mob == "") { alert("Please enter your mobile no."); return false; }
   else if (pas == "") { alert("Please enter password"); return false; }
-  else if (pas == "") { alert("Please upload a pic"); return false; }
+  else if (pic == "") { alert("Please upload photo"); return false; }
   else { return true; }
 }
-document.getElementById('db').max = new Date().toISOString().split("T")[0];
+// db.max = new Date().toISOString().split("T")[0];
 
 //*********************Email Id Validation************************
 // function validateemail(inputText)
@@ -73,6 +75,32 @@ document.getElementById('db').max = new Date().toISOString().split("T")[0];
 //   }
 // }
 
+//*****************Validation of profile photo***********************//
+function show(input) {
+  debugger;
+  var validExtensions = ['jpg','png','jpeg']; //array of valid extensions
+  var fileName = input.files[0].name;
+  var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+  if ($.inArray(fileNameExt, validExtensions) == -1) {
+      input.type = ''
+      input.type = 'file'
+      $('#user_img').attr('src',"");
+      alert("Only these file types are accepted : "+validExtensions.join(', '));
+  }
+  else
+  {
+  if (input.files && input.files[0]) {
+      var filerdr = new FileReader();
+      filerdr.onload = function (e) {
+          $('#user_img').attr('src', e.target.result);
+      }
+      filerdr.readAsDataURL(input.files[0]);
+  }
+  }
+}
+
+
+
 //*****************Angular Js***********************//
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http){
@@ -85,3 +113,4 @@ app.controller('myCtrl',function($scope,$http){
     $scope.email=response.data.email_id;
   })
 })
+
