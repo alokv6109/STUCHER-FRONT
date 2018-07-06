@@ -43,7 +43,7 @@ function vald() {
   var em = document.getElementById("em").value;
   var mob = document.getElementById("mob").value;
   var pas = document.getElementById("pas").value;
-  var pic=document.getElementById("pc").value;
+  var pic = document.getElementById("pc").value;
   if (fn == "") { alert("Please enter your first name"); return false; }
   else if (ln == "") { alert("Please enter your last name"); return false; }
   else if (db == "") { alert("Please enter your DOB"); return false; }
@@ -78,39 +78,57 @@ function vald() {
 //*****************Validation of profile photo***********************//
 function show(input) {
   debugger;
-  var validExtensions = ['jpg','png','jpeg']; //array of valid extensions
+  var validExtensions = ['jpg', 'png', 'jpeg']; //array of valid extensions
   var fileName = input.files[0].name;
   var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
   if ($.inArray(fileNameExt, validExtensions) == -1) {
-      input.type = ''
-      input.type = 'file'
-      $('#user_img').attr('src',"");
-      alert("Only these file types are accepted : "+validExtensions.join(', '));
+    input.type = ''
+    input.type = 'file'
+    $('#user_img').attr('src', "");
+    alert("Only these file types are accepted : " + validExtensions.join(', '));
   }
-  else
-  {
-  if (input.files && input.files[0]) {
+  else {
+    if (input.files && input.files[0]) {
       var filerdr = new FileReader();
       filerdr.onload = function (e) {
-          $('#user_img').attr('src', e.target.result);
+        $('#user_img').attr('src', e.target.result);
       }
       filerdr.readAsDataURL(input.files[0]);
-  }
+    }
   }
 }
 
 
 
 //*****************Angular Js***********************//
-var app=angular.module('myApp',[]);
-app.controller('myCtrl',function($scope,$http){
-  conlole
-  $http.get('/process_stud').then(function(response){
-    $scope.user_name=response.data.first_name;
-    $scope.roll_no=response.data.roll_no;
-    $scope.branch=response.data.branch_id;
-    $scope.mobile_no=response.data.mobile_number;
-    $scope.email=response.data.email_id;
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function ($scope, $http) {
+  $http.get('/process_stud').then(function (response) {
+    $scope.user_name = response.data.first_name;
+    $scope.roll_no = response.data.roll_no;
+    $scope.branch = response.data.branch_id;
+    $scope.mobile_no = response.data.mobile_number;
+    $scope.email = response.data.email_id;
   })
 })
 
+//*****************AJS student_login***********************//
+// var postApp = angular.module('postApp', []);
+//     postApp.controller('postController', function($scope, $http) {
+//       $scope.user = {};
+//         $scope.formdata = function() {
+//         $http({
+//           method  : 'POST',
+//           url     : '/process_stud',
+//           data    : $scope.user,
+//           headers : { 'Content-Type': 'application/x-www-form-urlencoded' } 
+//          }).success(function(data) {
+//             if (data.errors) {
+//               $scope.errorLogin = data.errors.login_id;
+//               $scope.errorPassword = data.errors.password;
+//             } else {
+//               $scope.message = "logged in successfully";
+//             }
+//           });
+//         };
+//     });
