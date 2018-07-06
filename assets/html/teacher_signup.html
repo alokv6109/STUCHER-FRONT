@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title="Login"></title>
+  <title>Registration</title>
 
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -42,7 +42,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Date Of Birth:</label>
-                <input type="date" class="form-control" id="db" placeholder="DD/MM/YYYY" name="dob">
+                <input type="date" class="form-control" id="db" placeholder="DD/MM/YYYY" name="dob" min='1970-01-01'>
               </div>
               <div class="form-group">
                 <label>Id:</label>
@@ -53,14 +53,14 @@
                 <select class="form-control" id="department">
                   <option value="CSE" name="CSE">CSE</option>
                   <option value="ECE" name="ECE">ECE</option>
-                  <option value="EEE" name="EEE">EEE</option>
+                  <!-- <option value="EEE" name="EEE">EEE</option> -->
                   <option value="Mechanical" name="Mechanical">Mechanical</option>
                   <option value="Civil" name="Civil">Civil</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="em" placeholder="example@gmail.com" name="email">
+                <input type="email" class="form-control" id="em" placeholder="example@gmail.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
               </div>
               <div class="form-group">
                 <label for="mobile">Mobile:</label>
@@ -70,8 +70,22 @@
                 <label>Password:</label>
                 <input type="password" class="form-control" id="pas" placeholder="Password" name="password">
               </div>
-              <label>Profile Photo</label>
-              <input type="file" name="pic" accept="image/*">
+              <div class="form-group">
+                  Upload Your Image
+                        <div class="col-md-10">
+                            <div>
+                                <img id="user_img"
+                                     height="130"
+                                     width="130"
+                                     style="border:solid" />
+                            </div>
+                            <div>
+                                <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
+                            </div>
+                        </div>
+                    </div>
+              <!-- <label>Profile Photo</label>
+              <input type="file" name="pic" id="pc" accept="image/*"> -->
               <div class="checkbox">
                 <label>
                   <input type="checkbox" /> I agree to the

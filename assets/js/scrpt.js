@@ -41,6 +41,7 @@ function vald() {
   var em = document.getElementById("em").value;
   var mob = document.getElementById("mob").value;
   var pas = document.getElementById("pas").value;
+  var pc=document.getElementById("pc").value;
   if (fn == "") { alert("Please enter your first name"); return false; }
   else if (ln == "") { alert("Please enter your last name"); return false; }
   else if (db == "") { alert("Please enter your DOB"); return false; }
@@ -50,8 +51,10 @@ function vald() {
   else if (em == "") { alert("Please enter email id"); return false; }
   else if (mob == "") { alert("Please enter your mobile no."); return false; }
   else if (pas == "") { alert("Please enter password"); return false; }
+  else if (pas == "") { alert("Please upload a pic"); return false; }
   else { return true; }
 }
+document.getElementById('db').max = new Date().toISOString().split("T")[0];
 
 //*********************Email Id Validation************************
 // function validateemail(inputText)
