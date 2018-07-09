@@ -101,16 +101,16 @@ function show(input) {
 
 
 //*****************Angular Js***********************//
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function ($scope, $http) {
-  $http.get('/process_stud').then(function (response) {
-    $scope.user_name = response.data.first_name;
-    $scope.roll_no = response.data.roll_no;
-    $scope.branch = response.data.branch_id;
-    $scope.mobile_no = response.data.mobile_number;
-    $scope.email = response.data.email_id;
-  })
-})
+// var app = angular.module('myApp', ['ngCookies']);
+// app.controller('myCtrl', function ($scope, $http, $cookies,) {
+//   $http.get('/student_details').then(function (response) {
+//     $scope.user_name = response.data.first_name;
+//     $scope.roll_no = response.data.roll_no;
+//     $scope.branch = response.data.branch_id;
+//     $scope.mobile_no = response.data.mobile_number;
+//     $scope.email = response.data.email_id;
+//   })
+// })
 
 //*****************AJS student_login***********************//
 // var postApp = angular.module('postApp', []);
