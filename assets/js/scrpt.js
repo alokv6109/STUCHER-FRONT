@@ -56,24 +56,17 @@ function vald() {
   else if (pic == "") { alert("Please upload photo"); return false; }
   else { return true; }
 }
-// db.max = new Date().toISOString().split("T")[0];
 
-//*********************Email Id Validation************************
-// function validateemail(inputText)
-// {
-//   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//   if(inputText.value.match(mailformat))
-//   {
-//     document.form1.email.focus();
-//     return true;
-//   }
-//   else
-//   {
-//     alert("You have entered an invalid email address!");
-//     document.form1.email.focus();
-//     return false;
-//   }
-// }
+function forgotvalidate() {
+  var emailid = document.getElementById("email").value;
+  var newpass = document.getElementById("password").value;
+  if (emailid == "") {
+    alert("please enter your email id."); return false;
+  }
+  else if (newpass == "") { alert("please enter your new password"); return false; }
+  else { return true; }
+}
+
 
 //*****************Validation of profile photo***********************//
 function show(input) {
@@ -98,37 +91,66 @@ function show(input) {
   }
 }
 
+//**********STUDENT DETAILS USING ANGULAR JS******************//
 
+var app = angular.module('myApp', ['ngCookies']);
+app.controller('myCtrl', function ($scope, $http, $cookies) {
+  var token = $cookies.get('accessToken');
+  var id = $cookies.get('accessId');
+  data = { token, id };
+  console.log("the data to send is ", data)
+  $http.post('/student_details', data).then(function (res) {
+    console.log("the upcomming response is ", res)
+    var fname = res.data.first_name;
+    var lname = res.data.last_name;
+    $scope.user_name = fname + " " + lname;
+    $scope.roll_no = res.data.roll_no;
+    $scope.branch = res.data.branch_id;
+    $scope.mobile_no = res.data.mobile_number;
+    $scope.email = res.data.email_id;
+  })
+})
 
-//*****************Angular Js***********************//
-// var app = angular.module('myApp', ['ngCookies']);
-// app.controller('myCtrl', function ($scope, $http, $cookies,) {
-//   $http.get('/student_details').then(function (response) {
-//     $scope.user_name = response.data.first_name;
-//     $scope.roll_no = response.data.roll_no;
-//     $scope.branch = response.data.branch_id;
-//     $scope.mobile_no = response.data.mobile_number;
-//     $scope.email = response.data.email_id;
-//   })
-// })
+//**********TEACHER DETAILS USING ANGULAR JS******************//
 
-//*****************AJS student_login***********************//
-// var postApp = angular.module('postApp', []);
-//     postApp.controller('postController', function($scope, $http) {
-//       $scope.user = {};
-//         $scope.formdata = function() {
-//         $http({
-//           method  : 'POST',
-//           url     : '/process_stud',
-//           data    : $scope.user,
-//           headers : { 'Content-Type': 'application/x-www-form-urlencoded' } 
-//          }).success(function(data) {
-//             if (data.errors) {
-//               $scope.errorLogin = data.errors.login_id;
-//               $scope.errorPassword = data.errors.password;
-//             } else {
-//               $scope.message = "logged in successfully";
-//             }
-//           });
-//         };
-//     });
+var tApp = angular.module('tApp', ['ngCookies']);
+tApp.controller('Ctrl', function ($scope, $http, $cookies) {
+  var token = $cookies.get('accessToken');
+  var id = $cookies.get('accessId');
+  data = { token, id };
+  console.log("the data to send is ", data)
+  $http.post('/teacher_details', data).then(function (res) {
+    console.log("the upcomming response is ", res)
+    var fname = res.data.first_name;
+    var lname = res.data.last_name;
+    $scope.user_name = fname + " " + lname;
+    $scope.teacher_id = res.data.roll_no;
+    $scope.department = res.data.branch_id;
+    $scope.mobile_no = res.data.mobile_number;
+    $scope.email = res.data.email_id;
+  })
+})
+
+var postTeach = angular.module('postTeach', ['ngCookies']);
+postTeach.controller('Controller', function ($scope, $http, $cookies, $window) {
+  $scope.teach = {};
+  $scope.teachdata = function () {
+    $http.post('/process_teach', $scope.teach).then(function (res) {
+      $cookies.put('accessToken', res.data.token)
+      $cookies.put('accessId', res.data.id)
+      $window.location.href = "/teacher_details";
+    });
+  }
+});
+
+var poststud = angular.module('poststud', ['ngCookies']);
+poststud.controller('postController', function ($scope, $http, $cookies, $window) {
+  $scope.stud = {};
+  $scope.studdata = function () {
+    $http.post('/process_stud', $scope.stud).then(function (res) {
+      $cookies.put('accessToken', res.data.token)
+      $cookies.put('accessId', res.data.id)
+      $window.location.href = "/student_details";
+    });
+  }
+});
