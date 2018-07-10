@@ -77,6 +77,37 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies) {
     $scope.mobile_no = res.data.mobile_number;
     $scope.email = res.data.email_id;
   })
+   $scope.teachstud = {};
+  // var roll_no=$scope.teachstud.roll_no;
+  // var sub_id=$scope.teachstud.sub_id;
+  // var newdata={token,roll_no,sub_id}
+  $scope.senddata = function () {
+    var roll_no=$scope.teachstud.roll_no;
+    var sub_id=$scope.teachstud.sub_id;
+    var newdata={token,id,roll_no,sub_id}
+    $http.post('/teach_stud', newdata).then(function (res) {
+      console.log("THE RESPONSE IS ",res)
+      $cookies.put('accessToken', res.data.token)
+      $cookies.put('accessId', res.data.id)
+      console.log("*****YOOOOOOOOOOO*****");
+      $window.location.href = "/teacher_details";
+      
+      
+    });
+  }
 })
 
+//**********TEACHER MARKS UPDATE DETAILS USING ANGULAR JS******************//
+//**********       POST REQUEST   ******************//
 
+// var tApp = angular.module('tApp', ['ngCookies']);
+// tApp.controller('teachCtrl', function ($scope, $http, $cookies, $window) {
+//   $scope.teachstud = {};
+//   console.log("the send roll no is ",$scope.teachstud)
+//   $scope.teachstuddata = function () {
+//     $http.post('/teach_stud', $scope.teachstud).then(function (res) {
+//       $cookies.put('accessToken', res.data.token)
+//       $cookies.put('accessId', res.data.id)
+//     });
+//   }
+// });
