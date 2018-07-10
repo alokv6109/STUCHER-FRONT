@@ -138,7 +138,12 @@ postTeach.controller('Controller', function ($scope, $http, $cookies, $window) {
     $http.post('/process_teach', $scope.teach).then(function (res) {
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
+      if(res.data.token==undefined){
+        alert("Please check your Id")
+      }
+      else{
       $window.location.href = "/teacher_details";
+      }
     });
   }
 });
@@ -148,9 +153,15 @@ poststud.controller('postController', function ($scope, $http, $cookies, $window
   $scope.stud = {};
   $scope.studdata = function () {
     $http.post('/process_stud', $scope.stud).then(function (res) {
+      // console.log("the token is ",res.data.token)
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
+      if(res.data.token==undefined){
+        alert("Please check your roll no.")
+      }
+      else{
       $window.location.href = "/student_details";
+      }
     });
   }
 });
