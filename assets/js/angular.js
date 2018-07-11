@@ -46,7 +46,11 @@ app.controller('myCtrl', function ($scope, $http, $cookies) {
         console.log(res.data.result);
         
         $scope.marks =  res.data.result;
-        $scope.marksShow =1;
+        if($scope.marksShow==true)
+        {
+          $scope.marksShow=false;
+        }
+        else{$scope.marksShow=true;}
   
   })
 }
@@ -102,28 +106,20 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies) {
     var sub_id = $scope.teachstud.sub_id;
     var newdata = { token, id, roll_no, sub_id }
     $http.post('/teach_stud', newdata).then(function (res) {
-      console.log("THE RESPONSE IS ", res)
+      console.log("THE RESPONSE IS ", res.data)
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
-      console.log("*****YOOOOOOOOOOO*****");
-      $window.location.href = "/teacher_details";
-
-
+      $scope.subject=res.data.response[0].subject_name;
+      $scope.marks=res.data.response[0].marks;    
     });
   }
+  $scope.newmarks=function(){
+    var sub_id = $scope.teachstud.sub_id;
+    console.log("THE SENDED sub_id is ",sub_id)
+    var newmarks=$scope.marks;
+    data={token, id, sub_id, newmarks}
+    $http.post('/updateMarks',data).then(function(res){
+       console.log("MARKS RESPONSE")
+    })
+  }
 })
-
-//**********TEACHER MARKS UPDATE DETAILS USING ANGULAR JS******************//
-//**********       POST REQUEST   ******************//
-
-// var tApp = angular.module('tApp', ['ngCookies']);
-// tApp.controller('teachCtrl', function ($scope, $http, $cookies, $window) {
-//   $scope.teachstud = {};
-//   console.log("the send roll no is ",$scope.teachstud)
-//   $scope.teachstuddata = function () {
-//     $http.post('/teach_stud', $scope.teachstud).then(function (res) {
-//       $cookies.put('accessToken', res.data.token)
-//       $cookies.put('accessId', res.data.id)
-//     });
-//   }
-// });

@@ -72,25 +72,20 @@
                         <td>
                           <!-- <div class="dropdown"> -->
                           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" ng-click="display()">My Subject Marks
-                            <span class="caret"></span>
                           </button>
-                        
-                              
-                             <table ng-show="marksShow" class="table table-bordered table-responsive">
-                              <tbody> 
-                                 <tr>
-                                  <th>Subject</th>
-                                  <th>Marks</th>
-                                </tr> 
-                                
-                                 <tr ng-repeat="mark in marks">
-                                  <td>{{mark.subject_name}}</td>
-                                  <td>{{mark.marks || '---'}}</td>
-                                </tr>
-                             
-                              </tbody>
-                            </table>
-                         
+                          <table ng-show="marksShow" class="table table-bordered table-responsive">
+                            <tbody>
+                              <tr>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                              </tr>
+                              <tr ng-repeat="mark in marks">
+                                <td>{{mark.subject_name}}</td>
+                                <td>{{mark.marks || '---'}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
                           <!-- </div> -->
                         </td>
                       </tr>

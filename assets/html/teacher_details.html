@@ -79,16 +79,12 @@
                                 <th>Marks</th>
                               </tr>
                               <tr>
-                                <td>{{subject1}}</td>
-                                <td>{{marks1}}</td>
-                              </tr>
-                              <tr>
-                                <td>{{subject2}}</td>
-                                <td>{{marks2}}</td>
+                                <td>{{subject}}</td>
+                                <td><input type="text" placeholder="{{marks}}" size="10px" ng-model="marks"></td>
                               </tr>
                             </tbody>
                           </table>
-                          <button type="button" class="btn btn-primary btn-sm" id="" style="margin-left:50px;">submit</button>
+                          <button type="button" class="btn btn-primary btn-sm" id="" style="margin-left:85px;" ng-click="newmarks()">submit</button>
                         </div>
                       </form>
                     </ul>
