@@ -67,6 +67,19 @@ function forgotvalidate() {
   else { return true; }
 }
 
+function inputvalidate() {
+  var roll_no = document.getElementById("roll_no").value;
+  var sub_id = document.getElementById("sub_id").value;
+  if (roll_no == "") {
+    alert("enter roll no."); return false;
+  }
+  else if (sub_id == "") {
+    alert("enter subject code"); return false;
+  }
+  else {
+    return true;
+  }
+}
 
 //***********       VALIDATION OF PROFILE PHOTO       *************//
 function show(input) {
@@ -90,3 +103,14 @@ function show(input) {
     }
   }
 }
+
+// ********      CODE TO DISPLAY MARKS DYNAMICALLY       **********
+// function display(){
+//   var i=0;
+//   var x="";
+//   var n=res.data.result.length;
+//   var a=document.getElementById("dynamic").innerHTML=x;
+//   for(i=0;i<n;i++)
+//   {x=x+"<tr><td>{{subject[i]}}</td><td>{{marks[i]}}</td></tr>";}
+//   console.log("THE VALUE OF X IS ",x)
+// }

@@ -59,36 +59,37 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                      <form class="form-inline">
+                      <form class="form-inline" onsubmit="return inputvalidate()">
                         <div ng-show="inputfrm">
-                        <div class="form-group">
-                          <label for="roll_no" style="margin-left:15px;">Roll no. of student:</label>
-                          <input type="text" class="form-control" id="roll_no" placeholder="Enter roll no." name="roll_no" ng-model="teachstud.roll_no">
+                          <div class="form-group">
+                            <label for="roll_no" style="margin-left:15px;">Roll no. of student:</label>
+                            <input type="text" class="form-control" id="roll_no" placeholder="Enter roll no." name="roll_no" ng-model="teachstud.roll_no">
+                          </div>
+                          <div class="form-group">
+                            <label for="roll_no" style="margin-left:70px; margin-top:15px;">Subject Id:</label>
+                            <input type="text" class="form-control" id="sub_id" placeholder="Subject Id" name="sub_id" ng-model="teachstud.sub_id">
+                          </div>
+                          <button type="button" class="btn btn-primary" id="" style="float:right; margin-right:60px; margin-top:10px;" ng-click="senddata()">submit</button>
                         </div>
-                        <div class="form-group">
-                          <label for="roll_no" style="margin-left:70px; margin-top:15px;">Subject Id:</label>
-                          <input type="text" class="form-control" id="sub_id" placeholder="Subject Id" name="sub_id" ng-model="teachstud.sub_id">
-                        </div>
-                        <button type="button" class="btn btn-primary" id="" style="float:right; margin-right:60px; margin-top:10px;" ng-click="senddata()">submit</button>
-                      </div>
                         <div ng-show="marksdetails">
-                             <table class="table table-bordered">
-                              <tbody>
-                                <tr>
-                                  <th>Subject</th>
-                                  <th>Marks</th>
-                                </tr>
-                                <tr>
-                                  <td>{{subject1}}</td>
-                                  <td>{{marks1}}</td>
-                                </tr>
-                                <tr>
-                                  <td>{{subject2}}</td>
-                                  <td>{{marks2}}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            </div>
+                          <table class="table table-bordered">
+                            <tbody>
+                              <tr>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                              </tr>
+                              <tr>
+                                <td>{{subject1}}</td>
+                                <td>{{marks1}}</td>
+                              </tr>
+                              <tr>
+                                <td>{{subject2}}</td>
+                                <td>{{marks2}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <button type="button" class="btn btn-primary btn-sm" id="" style="margin-left:50px;">submit</button>
+                        </div>
                       </form>
                     </ul>
                   </div>

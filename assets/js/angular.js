@@ -23,6 +23,7 @@ poststud.controller('postController', function ($scope, $http, $cookies, $window
 
 var app = angular.module('myApp', ['ngCookies']);
 app.controller('myCtrl', function ($scope, $http, $cookies) {
+  $scope.marks = null;
   var token = $cookies.get('accessToken');
   var id = $cookies.get('accessId');
   data = { token, id };
@@ -37,6 +38,18 @@ app.controller('myCtrl', function ($scope, $http, $cookies) {
     $scope.mobile_no = res.data.mobile_number;
     $scope.email = res.data.email_id;
   })
+  
+    // console.log("the lenght is ",res.data.result.length)
+    // console.log("the marks response is ",res.data)
+    $scope.display=function(){
+      $http.post('/marks',data).then(function(res){
+        console.log(res.data.result);
+        
+        $scope.marks =  res.data.result;
+        $scope.marksShow =1;
+  
+  })
+}
 })
 
 //**********TEACHER DETAILS USING ANGULAR JS******************//
