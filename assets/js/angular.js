@@ -9,11 +9,11 @@ poststud.controller('postController', function ($scope, $http, $cookies, $window
       // console.log("the token is ",res.data.token)
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
-      if(res.data.token==undefined){
+      if (res.data.token == undefined) {
         alert("Please check your username")
       }
-      else{
-      $window.location.href = "/student_details";
+      else {
+        $window.location.href = "/student_details";
       }
     });
   }
@@ -49,11 +49,11 @@ postTeach.controller('Controller', function ($scope, $http, $cookies, $window) {
     $http.post('/process_teach', $scope.teach).then(function (res) {
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
-      if(res.data.token==undefined){
+      if (res.data.token == undefined) {
         alert("Please check your Id")
       }
-      else{
-      $window.location.href = "/teacher_details";
+      else {
+        $window.location.href = "/teacher_details";
       }
     });
   }
@@ -77,22 +77,25 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies) {
     $scope.mobile_no = res.data.mobile_number;
     $scope.email = res.data.email_id;
   })
-   $scope.teachstud = {};
-  // var roll_no=$scope.teachstud.roll_no;
-  // var sub_id=$scope.teachstud.sub_id;
-  // var newdata={token,roll_no,sub_id}
+  $scope.teachstud = {};
+  $scope.editmarks = function () {
+        $scope.inputfrm=true;
+      $scope.marksdetails=false;
+  }
   $scope.senddata = function () {
-    var roll_no=$scope.teachstud.roll_no;
-    var sub_id=$scope.teachstud.sub_id;
-    var newdata={token,id,roll_no,sub_id}
+    $scope.inputfrm = false;
+    $scope.marksdetails = true;
+    var roll_no = $scope.teachstud.roll_no;
+    var sub_id = $scope.teachstud.sub_id;
+    var newdata = { token, id, roll_no, sub_id }
     $http.post('/teach_stud', newdata).then(function (res) {
-      console.log("THE RESPONSE IS ",res)
+      console.log("THE RESPONSE IS ", res)
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
       console.log("*****YOOOOOOOOOOO*****");
       $window.location.href = "/teacher_details";
-      
-      
+
+
     });
   }
 })

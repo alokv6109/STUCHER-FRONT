@@ -68,7 +68,7 @@ function forgotvalidate() {
 }
 
 
-//*****************Validation of profile photo***********************//
+//***********       VALIDATION OF PROFILE PHOTO       *************//
 function show(input) {
   debugger;
   var validExtensions = ['jpg', 'png', 'jpeg']; //array of valid extensions

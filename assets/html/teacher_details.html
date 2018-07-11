@@ -27,9 +27,7 @@
           <div class="panel panel-info" style="border:5px solid lightblue;">
             <div class="panel-heading" style="background-color:lightblue;">
               <h3 class="panel-title">{{user_name}}</h3>
-              <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-top:-24px;">
-                <a href="index.html" style="color:white">Logout</a>
-              </button>
+              <button type="button" class="btn btn-primary btn-sm" style="float:right; margin-top:-24px;">Logout</button>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -47,7 +45,7 @@
                         <td>{{department}}</td>
                       </tr>
                       <tr>
-                        <td>Email</td>
+                        <td>Email:</td>
                         <td>
                           <a href="mailto:{{email}}">{{email}}</a>
                         </td>
@@ -57,11 +55,12 @@
                     </tbody>
                   </table>
                   <div class="dropdown">
-                    <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown">Edit Marks
+                    <button class="btn btn-primary btn-block dropdown-toggle" type="button" data-toggle="dropdown" ng-click="editmarks()">Edit Marks
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                       <form class="form-inline">
+                        <div ng-show="inputfrm">
                         <div class="form-group">
                           <label for="roll_no" style="margin-left:15px;">Roll no. of student:</label>
                           <input type="text" class="form-control" id="roll_no" placeholder="Enter roll no." name="roll_no" ng-model="teachstud.roll_no">
@@ -71,8 +70,9 @@
                           <input type="text" class="form-control" id="sub_id" placeholder="Subject Id" name="sub_id" ng-model="teachstud.sub_id">
                         </div>
                         <button type="button" class="btn btn-primary" id="" style="float:right; margin-right:60px; margin-top:10px;" ng-click="senddata()">submit</button>
-                        <!-- <div ng-show="cl">
-                            <table class="table table-bordered">
+                      </div>
+                        <div ng-show="marksdetails">
+                             <table class="table table-bordered">
                               <tbody>
                                 <tr>
                                   <th>Subject</th>
@@ -88,7 +88,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                          </div> -->
+                            </div>
                       </form>
                     </ul>
                   </div>
