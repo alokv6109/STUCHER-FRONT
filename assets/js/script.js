@@ -1,13 +1,4 @@
 
-//****************     Login credential validation   *******************
-// function validate() {
-  // var roll = document.getElementById("login_id").value;
-  // var pass = document.getElementById("password").value;
-  // if (roll == "") { alert("Please enter username"); return false; }
-  // else if (pass == "") { alert("Please enter password"); return false; }
-  // else { return true; }
-// }
-
 //*****************Registration credential validation*******************
 function valid() {
 
@@ -103,3 +94,8 @@ function show(input) {
     }
   }
 }
+
+/mobile/i.test(navigator.userAgent) && !window.location.hash && setTimeout(function () {
+  window.scrollTo(0, 1);
+  }, 1000);
+  
