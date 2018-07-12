@@ -22,7 +22,7 @@ poststud.controller('postController', function ($scope, $http, $cookies, $window
 //**********      DETAILS     ******************//
 
 var app = angular.module('myApp', ['ngCookies']);
-app.controller('myCtrl', function ($scope, $http, $cookies) {
+app.controller('myCtrl', function ($scope, $http, $cookies, $window) {
   $scope.marks = null;
   var token = $cookies.get('accessToken');
   var id = $cookies.get('accessId');
@@ -54,6 +54,12 @@ app.controller('myCtrl', function ($scope, $http, $cookies) {
   
   })
 }
+
+$scope.logout=function(){
+  $http.post('/logout',data).then(function(res){
+    $window.location.href="/";
+  })
+} 
 })
 
 //**********TEACHER DETAILS USING ANGULAR JS******************//
@@ -113,6 +119,12 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies,$window) {
       $scope.marks=res.data.response[0].marks;    
     });
   }
+  $scope.logout=function(){
+    $http.post('/logout',data).then(function(res){
+      $window.location.href="/";
+    })
+  } 
+
   $scope.newmarks=function(){
     var sub_id = $scope.teachstud.sub_id;
     console.log("THE SENDED sub_id is ",sub_id)
