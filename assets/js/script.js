@@ -1,12 +1,12 @@
 
 //****************     Login credential validation   *******************
-function validate() {
-  var roll = document.getElementById("login_id").value;
-  var pass = document.getElementById("password").value;
-  if (roll == "") { alert("Please enter username"); return false; }
-  else if (pass == "") { alert("Please enter password"); return false; }
-  else { return true; }
-}
+// function validate() {
+  // var roll = document.getElementById("login_id").value;
+  // var pass = document.getElementById("password").value;
+  // if (roll == "") { alert("Please enter username"); return false; }
+  // else if (pass == "") { alert("Please enter password"); return false; }
+  // else { return true; }
+// }
 
 //*****************Registration credential validation*******************
 function valid() {
@@ -103,14 +103,3 @@ function show(input) {
     }
   }
 }
-
-// ********      CODE TO DISPLAY MARKS DYNAMICALLY       **********
-// function display(){
-//   var i=0;
-//   var x="";
-//   var n=res.data.result.length;
-//   var a=document.getElementById("dynamic").innerHTML=x;
-//   for(i=0;i<n;i++)
-//   {x=x+"<tr><td>{{subject[i]}}</td><td>{{marks[i]}}</td></tr>";}
-//   console.log("THE VALUE OF X IS ",x)
-// }
