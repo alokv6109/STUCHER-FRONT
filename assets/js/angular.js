@@ -138,11 +138,10 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies, $window) {
     var sub_id = $scope.teachstud.sub_id;
     var newdata = { token, id, roll_no, sub_id }
     $http.post('/teach_stud', newdata).then(function (res) {
-      console.log("THE RESPONSE IS ", res.data)
       $cookies.put('accessToken', res.data.token)
       $cookies.put('accessId', res.data.id)
-      $scope.subject = res.data.response[0].subject_name;
-      $scope.marks = res.data.response[0].marks;
+      $scope.subject = res.data.marks[0].subject_name;
+      $scope.marks = res.data.marks[0].marks;
     });
   }
   $scope.logout = function () {
