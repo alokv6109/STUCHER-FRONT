@@ -79,7 +79,7 @@ postTeach.controller('Controller', function ($scope, $http, $cookies, $window) {
 //**********      DETAILS     ******************//
 
 var tApp = angular.module('tApp', ['ngCookies']);
-tApp.controller('Ctrl', function ($scope, $http, $cookies) {
+tApp.controller('Ctrl', function ($scope, $http, $cookies,$window) {
   var token = $cookies.get('accessToken');
   var id = $cookies.get('accessId');
   data = { token, id };
@@ -119,7 +119,9 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies) {
     var newmarks=$scope.marks;
     data={token, id, sub_id, newmarks}
     $http.post('/updateMarks',data).then(function(res){
-       console.log("MARKS RESPONSE")
+       console.log("MARKS RESPONSE",res)
+       alert("Marks are updated")
+       $window.location.href="/teacher_details";
     })
   }
 })
