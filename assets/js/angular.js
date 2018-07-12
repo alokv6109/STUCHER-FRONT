@@ -118,6 +118,8 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies, $window) {
       var fname = res.data.first_name;
       var lname = res.data.last_name;
       $scope.user_name = fname + " " + lname;
+
+      console.log("IMAGE ",$scope.pic=res.data.image)
       $scope.teacher_id = res.data.roll_no;
       $scope.department = res.data.branch_id;
       $scope.mobile_no = res.data.mobile_number;
