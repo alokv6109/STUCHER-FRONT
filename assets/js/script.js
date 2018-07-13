@@ -48,15 +48,15 @@ function vald() {
   else { return true; }
 }
 
-function forgotvalidate() {
-  var emailid = document.getElementById("email").value;
-  var newpass = document.getElementById("password").value;
-  if (emailid == "") {
-    alert("please enter your email id."); return false;
-  }
-  else if (newpass == "") { alert("please enter your new password"); return false; }
-  else { return true; }
-}
+// function forgotvalidate() {
+//   var emailid = document.getElementById("email").value;
+//   var newpass = document.getElementById("password").value;
+//   if (emailid == "") {
+//     alert("please enter your email id."); return false;
+//   }
+//   else if (newpass == "") { alert("please enter your new password"); return false; }
+//   else { return true; }
+// }
 
 function inputvalidate() {
   var roll_no = document.getElementById("roll_no").value;

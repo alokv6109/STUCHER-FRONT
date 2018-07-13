@@ -20,31 +20,6 @@
             margin: auto;
             color: #fff;
             }
-    
-    
-            button {
-        	-webkit-transition: all 200ms ease;
-        	-moz-transition: all 200ms ease;
-        	-ms-transition: all 200ms ease;
-        	-o-transition: all 200ms ease;
-        	transition: all 200ms ease; 
-        
-        	-webkit-transform: translate3d(0, 0, 0);
-        	-webkit-backface-visibility: hidden;
-        	
-        	opacity: 1;
-        	}
-        
-            button:hover {
-        	    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
-        	    filter: alpha(opacity=50); /* IE7 */
-        	    opacity: 0.6;
-                }
-
-                button, button:visited, button:active {
-                    color: #fff;
-                    text-decoration: none;
-                    }
 
             .unicorn {
                 max-width: 100%;
@@ -84,13 +59,6 @@
                 margin: 0px 0 30px 0;
                 padding: 0px 20px 8px;
                 }
-     
-                .warning button { 
-                    margin-top: 30px;
-                    padding: 20px;
-                    background: #16A085; 
-                    }
-
 
             /* SVG */
             .unicorn {
@@ -128,10 +96,7 @@
         @media only screen and (max-width : 568px) {
             body {
               background: #16A085;
-              }            
-            .warning button { 
-              background: #4b5654; 
-              }        
+              }             
             h2 {
               color: #fff;
               }                  
@@ -153,10 +118,6 @@
               }
             .warning {
               margin: 0;
-              }
-            .warning button { 
-              margin-top: 20px;
-              font-size: 0.63rem; 
-              }        
+              }     
               
         }

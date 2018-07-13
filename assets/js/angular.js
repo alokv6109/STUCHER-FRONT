@@ -10,19 +10,19 @@ poststud.controller('postController', function ($scope, $http, $cookies, $window
     if (roll == "") { alert("Please enter username"); }
     else if (pass == "") { alert("Please enter password"); }
     else {
-    $http.post('/process_stud', $scope.stud).then(function (res) {
-      // console.log("the token is ",res.data.token)
-      $cookies.put('accessToken', res.data.token)
-      $cookies.put('accessId', res.data.id)
-      if (res.data.token == undefined) {
-        alert("Please check your username")
-      }
-      else {
-        $window.location.href = "/student_details";
-      }
-    });
+      $http.post('/process_stud', $scope.stud).then(function (res) {
+        // console.log("the token is ",res.data.token)
+        $cookies.put('accessToken', res.data.token)
+        $cookies.put('accessId', res.data.id)
+        if (res.data.token == undefined) {
+          alert("Please check your username or password")
+        }
+        else {
+          $window.location.href = "/student_details";
+        }
+      });
+    }
   }
-}
 });
 
 //**********      DETAILS     ******************//
@@ -40,15 +40,15 @@ app.controller('myCtrl', function ($scope, $http, $cookies, $window) {
       alert("Session Expired! Login Again")
       $window.location.href = '/studentlogin';
     }
-    else{
-    var fname = res.data.first_name;
-    var lname = res.data.last_name;
-    $scope.user_name = fname + " " + lname;
-    $scope.pic=res.data.image;
-    $scope.roll_no = res.data.roll_no;
-    $scope.branch = res.data.branch_id;
-    $scope.mobile_no = res.data.mobile_number;
-    $scope.email = res.data.email_id;
+    else {
+      var fname = res.data.first_name;
+      var lname = res.data.last_name;
+      $scope.user_name = fname + " " + lname;
+      $scope.pic = res.data.image;
+      $scope.roll_no = res.data.roll_no;
+      $scope.branch = res.data.branch_id;
+      $scope.mobile_no = res.data.mobile_number;
+      $scope.email = res.data.email_id;
     }
   })
 
@@ -87,17 +87,17 @@ postTeach.controller('Controller', function ($scope, $http, $cookies, $window) {
     if (roll == "") { alert("Please enter username"); }
     else if (pass == "") { alert("Please enter password"); }
     else {
-    $http.post('/process_teach', $scope.teach).then(function (res) {
-      $cookies.put('accessToken', res.data.token)
-      $cookies.put('accessId', res.data.id)
-      if (res.data.token == undefined) {
-        alert("Please check your Id")
-      }
-      else {
-        $window.location.href = "/teacher_details";
-      }
-    });
-  }
+      $http.post('/process_teach', $scope.teach).then(function (res) {
+        $cookies.put('accessToken', res.data.token)
+        $cookies.put('accessId', res.data.id)
+        if (res.data.token == undefined) {
+          alert("Please check your Id or password")
+        }
+        else {
+          $window.location.href = "/teacher_details";
+        }
+      });
+    }
   }
 });
 
@@ -119,7 +119,7 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies, $window) {
       var fname = res.data.first_name;
       var lname = res.data.last_name;
       $scope.user_name = fname + " " + lname;
-      $scope.pic=res.data.image;
+      $scope.pic = res.data.image;
       $scope.teacher_id = res.data.roll_no;
       $scope.department = res.data.branch_id;
       $scope.mobile_no = res.data.mobile_number;
@@ -161,5 +161,30 @@ tApp.controller('Ctrl', function ($scope, $http, $cookies, $window) {
       alert("Marks are updated")
       $window.location.href = "/teacher_details";
     })
+  }
+})
+
+var forgotpass = angular.module('forgotpass', []);
+forgotpass.controller('passCtrl', function ($scope, $http,$window) {
+  $scope.forgot_password = function () {
+    var emailid = document.getElementById("email").value;
+    var newpass = document.getElementById("password").value;
+    if (emailid == "") {
+      alert("please enter your email id.");
+    }
+    else if (newpass == "") { alert("please enter your new password"); }
+    else {
+      var password = $scope.password;
+      var email = $scope.email;
+      data = { email, password };
+      $http.post('/forgot_password', data).then(function (res) {
+        if(res.data=="401")
+        {alert("Your email id did not match!")}
+        else{
+          alert("Your password has been changed successfully!")
+          $window.location.href='/';
+        }
+      })
+    }
   }
 })
